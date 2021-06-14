@@ -23,34 +23,34 @@
               <tbody>
                 <tr>
                     <td>1</td>
-                    <td>01/05/2021</td>
-                    <td>Camille</td>
+                    <td>2021/01/05</td>
+                    <td>Camille Beaute</td>
                     <td>2</td>
                     <td>25.000</td>
                     <td>50.000</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>03/18/2021</td>
+                    <td>2021/04/06</td>
                     <td>Runaskin</td>
-                    <td>5</td>
+                    <td>2</td>
                     <td>15.000</td>
-                    <td>75.000</td>
+                    <td>30.000</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>02/01/2021</td>
+                    <td>2021/05/04</td>
                     <td>Beautetox</td>
-                    <td>10</td>
+                    <td>2</td>
                     <td>15.000</td>
-                    <td>150.000</td>
+                    <td>30.000</td>
                   </tr>
                 <tr>
                   <td colspan="5">
                     <b>Total</b>
                   </td>
                   <td class="text-right">
-                    <b>275.000</b>
+                    <b>111.000</b>
                   </td>
                 </tr>
               </tbody>
@@ -75,7 +75,7 @@
                 <tr>
                   <td>Total</td>
                   <td>
-                    <input type="text" name="total" id="total" class="form-control" value="275.000">
+                    <input type="text" name="total" id="total" class="form-control" value="123.000">
                   </td>
                 </tr>
                 <tr>
@@ -87,13 +87,13 @@
                 <tr>
                   <td>Ekspedisi</td>
                   <td>
-                    <input type="text" name="ekspedisi" id="ekspedisi" class="form-control" value="JNT">
+                    <input type="text" name="ekspedisi" id="ekspedisi" class="form-control" value="J&T">
                   </td>
                 </tr>
                 <tr>
                   <td>No. Resi</td>
                   <td>
-                    <input type="text" name="no_resi" id="no_resi" class="form-control" value="JP054312887">
+                    <input type="text" name="no_resi" id="no_resi" class="form-control" value="JP001254224">
                   </td>
                 </tr>
                 <tr>

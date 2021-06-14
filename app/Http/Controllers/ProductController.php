@@ -15,9 +15,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::all();
+        $data = array('title' => 'Produk');
         return view('product.index', compact('products'));
     }
 
@@ -39,6 +40,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->file('foto')) {
+            $foto = $request->file('foto')->store('img', 'public');
+        }
         $request->validate([
             'id' => 'required',
             'foto' => 'required',
@@ -48,7 +52,14 @@ class ProductController extends Controller
             'deskripsi' => 'required',
         ]);
 
-        Product::create($request->all());
+        Product::create([
+            'id' => $request->id,
+            'foto' => $request->foto,
+            'nama' => $request->nama,
+            'stok' => $request->stok,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+        ]);
 
         return redirect()->route('products.index')
         ->with('successs', 'Data Berhasil Ditambahkan');
@@ -118,7 +129,7 @@ class ProductController extends Controller
     public function search (Request $request)
     {
         $search = $request->search;
-        $products = Product::where('nama', 'like', "%" . $search . "%");
-        return view('product.index', compact('products'));
+        $products = Product::where('nama', 'like', "%" . $search . "%")->paginate(5);
+        return view('product.index', compact('products'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

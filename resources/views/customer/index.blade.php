@@ -13,7 +13,7 @@
           <form action="#">
             <div class="row">
               <div class="col">
-                <input type="text" name="keyword" id="keyword" class="form-control" placeholder="ketik keyword disini">
+                <input type="text" name="keyword" id="keyword" class="form-control" placeholder="">
               </div>
               <div class="col-auto">
                 <button class="btn btn-primary">

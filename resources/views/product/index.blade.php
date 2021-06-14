@@ -22,7 +22,7 @@
 
     <form class="form" method="get" action="/search">
         <div class="form-group w-50 mb-3">
-            <input type="search" name="search" class="form-control w-75 d-inline" id="search" placeholder="">
+            <input type="search" name="search" class="form-control w-25 d-inline" id="search" placeholder="">
             <button type="submit" class="btn btn-primary mb-1">Cari</button>
         </div>
     </form>

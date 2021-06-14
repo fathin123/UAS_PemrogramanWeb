@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Transaksi;
+use PDF;
 
 class TransaksiController extends Controller
 {
@@ -14,10 +16,11 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = array('title' => 'Data Transaksi');
-        return view('transaksi.index', $data);
+        $transaksi = Transaksi::all();
+        $data =array('title' => 'Transaksi');
+        return view('transaksi.index', compact('transaksi'));
     }
 
     /**
@@ -49,8 +52,9 @@ class TransaksiController extends Controller
      */
     public function show($id)
     {
+        $transaksi = Transaksi::all();
         $data = array('title' => 'Detail Transaksi');
-        return view('transaksi.show', $data);
+        return view('transaksi.show', compact('transaksi'));
     }
 
     /**
@@ -61,8 +65,8 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
-        $data = array('title' => 'Form Edit Transaksi');
-        return view('transaksi.edit', $data);
+        $transaksi = Transaksi::find($id);
+        return view('transaksi.edit', compact('transaksi'));
     }
 
     /**
@@ -74,7 +78,7 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //
     }
 
     /**
@@ -86,5 +90,11 @@ class TransaksiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cetak_pdf($id) {
+        $t = Transaksi::find($id);
+        $pdf = PDF::loadview('pdf_pdf', compact(t));
+        return $pdf->stream();
     }
 }

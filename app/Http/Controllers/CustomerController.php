@@ -88,7 +88,7 @@ class CustomerController extends Controller
     public function search (Request $request)
     {
         $search = $request->search;
-        $customer = Customer::where('nama', 'like', "%" . $search . "%");
-        return view('customer.index', compact('customer'));
+        $customer = Customer::where('nama', 'like', "%" . $search . "%")->paginate(5);
+        return view('customer.index', compact('customer'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

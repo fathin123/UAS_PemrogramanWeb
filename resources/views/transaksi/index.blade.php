@@ -23,13 +23,15 @@
                 </tr>
               </thead>
               <tbody>
+                <?php $no=1; ?>
+                @foreach ($transaksi as $Transaksi)
                 <tr>
-                  <td>1</td>
-                  <td>01/05/2021</td>
-                  <td>Camille</td> 
-                  <td>2</td>
-                  <td>25.000</td>
-                  <td>50.000</td>
+                  <td>{{ $no++ }}</td>
+                  <td>{{ $Transaksi->tanggal }}</td>
+                  <td>{{ $Transaksi->nama }}</td> 
+                  <td>{{ $Transaksi->jumlah }}</td>
+                  <td>{{ $Transaksi->harga }}</td>
+                  <td>{{ $Transaksi->total }}</td>
                   <td>
                     <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
                       Detail
@@ -39,38 +41,7 @@
                     </a>
                   </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>03/18/2021</td>
-                    <td>Runaskin</td> 
-                    <td>5</td>
-                    <td>15.000</td>
-                    <td>75.000</td>
-                    <td>
-                      <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
-                        Detail
-                      </a>
-                      <a href="{{ route('transaksi.edit', 1) }}" class="btn btn-sm btn-primary mb-2">
-                        Edit
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>02/01/2021</td>
-                    <td>Beautetox</td> 
-                    <td>10</td>
-                    <td>15.000</td>
-                    <td>150.000</td>
-                    <td>
-                      <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
-                        Detail
-                      </a>
-                      <a href="{{ route('transaksi.edit', 1) }}" class="btn btn-sm btn-primary mb-2">
-                        Edit
-                      </a>
-                    </td>
-                  </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
